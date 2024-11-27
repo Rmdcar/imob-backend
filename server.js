@@ -6,7 +6,7 @@ const userRoutes = require('./userRoutes')
 const bodyParser = require('body-parser')
 
 const app = express()
-const port = 3030
+
 app.use(bodyParser.json());
 
 
@@ -14,6 +14,6 @@ connectToDataBase()
 
 app.use('/api/users', userRoutes);
 
-app.listen(port, () => {
-  console.log(`Servidor rodando em http://localhost:${port}`); 
+app.listen(process.env.port, () => {
+  console.log(`Servidor rodando`); 
 });

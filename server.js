@@ -12,8 +12,8 @@ app.use(bodyParser.json());
 
 connectToDataBase()
 
-app.use('/api/users', userRoutes);
+app.use('/', userRoutes);
 
 app.listen(process.env.port, () => {
-  console.log(`Servidor rodando`); 
+  console.log(`Servidor rodando na porta localhost:3000`); 
 });

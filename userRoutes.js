@@ -14,6 +14,7 @@ router.patch('/update/:id', userController.updateUser)
 
 //Rotas de imóveis
 router.post('/registerImoveis', imobController.registerImovel);
+router.get('/todos/imoveis', imobController.buscatodosImoveis)
 
 
 module.exports = router;

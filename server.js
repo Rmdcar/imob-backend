@@ -9,8 +9,16 @@ const app = express()
 
 app.use(bodyParser.json());
 
-
 connectToDataBase()
+
+//middleware
+app.use((req, res, next) =>{
+  console.log(`Tipo de requisição: ${req.method}`)
+  console.log(`Tipo de requisição: ${req.headers["content-type"]}`)
+  console.log(`Tipo de requisição: ${new Date()}`)
+  console.log(req.body)
+  next()
+})
 
 app.use('/', userRoutes);
 

@@ -2,7 +2,7 @@ const dotenv = require("dotenv"); //importante para subir servidor na cloud
 dotenv.config()
 const connectToDataBase = require('./database/connect')
 const express = require('express')
-const userRoutes = require('./userRoutes')
+const userRoutes = require('./Routes')
 const bodyParser = require('body-parser')
 
 const app = express()

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const imobSchema = new mongoose.Schema({
   tipo: {
@@ -21,6 +22,15 @@ const imobSchema = new mongoose.Schema({
     type: Number,
     required: true,
     min: 0
+  },
+  data:{
+    type: Date,
+    default: Date.now
+  },
+  userId: { 
+    type: Schema.Types.ObjectId, 
+    ref: 'User', 
+    required: true 
   }
 });
 

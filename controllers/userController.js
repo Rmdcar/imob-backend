@@ -7,14 +7,27 @@ const bcrypt = require('bcryptjs');
 exports.registerUser = async (req, res) => {
   try {
     const { name, email, password } = req.body;
+    
+    // Verificar se o e-mail já existe no banco de dados
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.json({ 
+        error: true,
+        message: 'Este e-mail já está em uso' });
+    }
+    
     const hashedPassword = await bcrypt.hash(password, 10); // Adicionado o número de salt rounds
     const newUser = new User({ name, email, password: hashedPassword });
     await newUser.save();
-    res.status(201).json({ message: 'Usuário registrado com sucesso' });
+    
+    res.status(201).json({ 
+      message: 'Usuário registrado com sucesso', 
+      error: false });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
+
 
 
 

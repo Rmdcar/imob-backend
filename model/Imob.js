@@ -31,7 +31,20 @@ const imobSchema = new mongoose.Schema({
     type: Schema.Types.ObjectId, 
     ref: 'User', 
     required: true 
+  },
+  telefone: {
+    type: Number,
+    required: true  
+  },
+  email: {
+    type: String,
+    required: true  
+  },
+  nome: {
+    type: String,
+    required: true
   }
+
 });
 
 
